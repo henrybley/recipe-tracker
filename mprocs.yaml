@@ -1,0 +1,7 @@
+procs:
+  backend:
+    shell: "php artisan serve"
+  db:
+    shell: "docker compose up"
+  cli:
+    shell: zsh

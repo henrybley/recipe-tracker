@@ -21,7 +21,7 @@ class Instruction extends Model
     use HasFactory;
     use HasUuids;
 
-    protected $fillable = ['step', 'order', 'recipe_id'];
+    protected $fillable = ['step', 'instruction', 'recipe_id'];
 
     public function recipe(): BelongsTo
     {

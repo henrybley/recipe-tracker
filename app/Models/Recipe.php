@@ -14,11 +14,11 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $name
  * @property string|null $description
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, RecipeIngredient> $ingredients
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Collection<int, RecipeIngredient> $ingredients
  * @property-read int|null $ingredients_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, Instruction> $instructions
+ * @property-read Collection<int, Instruction> $instructions
  * @property-read int|null $instructions_count
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Recipe newQuery()
@@ -35,11 +35,15 @@ class Recipe extends Model
     use HasFactory;
     use HasUuids;
 
-    protected $fillable = ['name', 'descripton'];
+    protected $fillable = ['name', 'description'];
 
     public function ingredients(): BelongsToMany
     {
-        return $this->belongsToMany(Ingredient::class, 'recipe_ingredients', 'recipe_id', 'ingredient_id')->withPivot('quantity');
+        return $this->belongsToMany(
+            Ingredient::class,
+            'recipe_ingredients',
+            'recipe_id',
+            'ingredient_id')->withPivot('quantity', 'unit');
     }
 
     public function instructions(): HasMany

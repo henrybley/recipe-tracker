@@ -13,7 +13,8 @@ return new class extends Migration {
         Schema::create('recipe_ingredients', function (Blueprint $table) {
             $table->foreignUuid('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
             $table->foreignUuid('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
-            $table->decimal('quantity');
+            $table->integer('quantity');
+            $table->string('unit');
             $table->primary(['recipe_id', 'ingredient_id']);
             $table->timestamps();
         });

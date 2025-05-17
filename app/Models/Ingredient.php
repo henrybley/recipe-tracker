@@ -31,7 +31,7 @@ class Ingredient extends Model
     use HasFactory;
     use HasUuids;
 
-    protected $fillable = ['name', 'size', 'size_unit'];
+    protected $fillable = ['name'];
 
     public function recipes(): BelongsToMany
     {
@@ -40,6 +40,6 @@ class Ingredient extends Model
             'recipe_ingredients',
             'ingredient_id',
             'recipe_id'
-        )->withPivot(['quantity']);
+        )->withPivot(['quantity', 'unit']);
     }
 }

@@ -2,28 +2,70 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ingredient;
+use App\Http\Requests\CreateIngredientRequest;
+use App\Http\Requests\UpdateIngredientRequest;
+use App\Services\IngredientService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class IngredientController extends Controller
 {
+    private IngredientService $ingredientService;
+
+    public function __construct(IngredientService $ingredientService)
+    {
+        $this->ingredientService = $ingredientService;
+    }
+
     public function index(): JsonResponse
     {
-        $ingredients = Ingredient::all();
+        $ingredients = $this->ingredientService->getAll();
 
         return response()->json($ingredients);
     }
 
     public function show(string $id): JsonResponse
     {
-        $ingredient = Ingredient::find($id);
-        if (empty($ingredient)) {
+        try {
+            $ingredient = $this->ingredientService->getById($id);
+
+            return response()->json($ingredient);
+        } catch (ModelNotFoundException $e) {
             return response()->json([
                 'message' => 'Ingredient Not Found',
             ], 404);
         }
+    }
+
+    public function create(CreateIngredientRequest $request): JsonResponse
+    {
+        $ingredient = $this->ingredientService->create($request->validated());
 
         return response()->json($ingredient);
+    }
+
+    public function update(string $id, UpdateIngredientRequest $request): JsonResponse
+    {
+        try {
+            $ingredient = $this->ingredientService->update($id, $request->validated());
+
+            return response()->json($ingredient);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'message' => 'Ingredient Not Found'], 404);
+        }
+    }
+
+    public function delete(string $id): JsonResponse
+    {
+        try {
+            $this->ingredientService->delete($id);
+
+            return response()->json(['message' => 'Success']);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'message' => 'Ingredient Not Found',
+            ], 404);
+        }
     }
 }

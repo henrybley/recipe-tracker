@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->integer('size');
-            $table->string('size_unit');
             $table->timestamps();
         });
     }

@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         $recipe->ingredients()->attach($ingredients[2], ['quantity' => 4, 'unit' => 'cloves']);
         $recipe->ingredients()->attach($ingredients[3], ['quantity' => 2, 'unit' => 'Tbsp']);
         $recipe->ingredients()->attach($ingredients[4], ['quantity' => 1, 'unit' => 'tsp']);
-        $recipe->ingredients()->attach($ingredients[5], ['quantity' => 0.5, 'unit' => 'tsp']);
+        $recipe->ingredients()->attach($ingredients[5], ['quantity' => 1, 'unit' => 'tsp']);
         $recipe->ingredients()->attach($ingredients[6], ['quantity' => 8, 'unit' => 'leaves']);
 
         $instructions = [

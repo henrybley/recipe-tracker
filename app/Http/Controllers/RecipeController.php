@@ -27,11 +27,11 @@ class RecipeController extends Controller
         $ingredientsSearchIds = $request->getIngredients();
 
         if (! empty($ingredientsSearchIds)) {
-            $recipes = $this->recipeService->getWithIngredients($ingredientsSearchIds);
+            $recipes = $this->recipeService->findWithIngredients($ingredientsSearchIds);
 
             return response()->json($recipes);
         }
-        $recipes = $this->recipeService->getAll();
+        $recipes = $this->recipeService->findAll();
 
         return response()->json($recipes);
     }
@@ -39,7 +39,7 @@ class RecipeController extends Controller
     public function show(string $id): JsonResponse
     {
         try {
-            $recipe = $this->recipeService->getById($id);
+            $recipe = $this->recipeService->findById($id);
 
             return response()->json($recipe);
         } catch (ModelNotFoundException $e) {
@@ -91,7 +91,7 @@ class RecipeController extends Controller
             return response()->json($recipe);
         } catch(ModelNotFoundException $e) {
             return response()->json([
-                'message' => 'Recipe Not Found',
+                'message' => 'Ingredient or Recipe Not Found',
             ], 404);
         }
     }

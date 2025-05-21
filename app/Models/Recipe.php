@@ -50,4 +50,9 @@ class Recipe extends Model
     {
         return $this->hasMany(Instruction::class);
     }
+
+    public function getInstructionsCount(): int
+    {
+        return $this->instructions->count();
+    }
 }

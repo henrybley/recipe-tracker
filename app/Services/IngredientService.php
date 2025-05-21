@@ -3,42 +3,50 @@
 namespace App\Services;
 
 use App\Models\Ingredient;
+use App\Repositories\IngredientRepository;
 use Illuminate\Database\Eloquent\Collection;
-use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class IngredientService
 {
-    public function getAll(): Collection
+
+    private IngredientRepository $ingredientRepository;
+
+    public function __construct(IngredientRepository $ingredientRepository)
     {
-        return Ingredient::all();
+        $this->ingredientRepository = $ingredientRepository;
     }
 
-    public function getById(string $id): Ingredient
+    public function findAll(): Collection
     {
-        $ingredient = Ingredient::findOrFail($id);
+        return $this->ingredientRepository->all();
+    }
+
+    public function findById(string $id): Ingredient
+    {
+        $ingredient = $this->ingredientRepository->findById($id);
 
         return $ingredient;
     }
 
     public function create(array $request): Ingredient
     {
-        return Ingredient::create([
+        return $this->ingredientRepository->create([
             'name' => $request['name'],
         ]);
     }
 
     public function delete(string $id): void {
-        $ingredient = $this->getById($id);
+        $ingredient = $this->findById($id);
 
-        $ingredient->delete();
+        $this->ingredientRepository->delete($ingredient);
     }
 
     public function update(string $id, array $request): Ingredient {
-        $ingredient = $this->getById($id);
+        $ingredient = $this->findById($id);
 
         $ingredient->name = $request['name'];
 
-        $ingredient->saveOrFail();
+        $this->ingredientRepository->save($ingredient);
 
         return $ingredient;
     }

@@ -19,7 +19,7 @@ class IngredientController extends Controller
 
     public function index(): JsonResponse
     {
-        $ingredients = $this->ingredientService->getAll();
+        $ingredients = $this->ingredientService->findAll();
 
         return response()->json($ingredients);
     }
@@ -27,7 +27,7 @@ class IngredientController extends Controller
     public function show(string $id): JsonResponse
     {
         try {
-            $ingredient = $this->ingredientService->getById($id);
+            $ingredient = $this->ingredientService->findById($id);
 
             return response()->json($ingredient);
         } catch (ModelNotFoundException $e) {

@@ -33,11 +33,18 @@ end to end functionality. In laravel this was very easy to setup also using an
 sqlite database which doesn't persist data. 
 
 ## Postman
-In the root Dir there is a Postman Collection Export for all implemented
+In the root dir there is a Postman Collection Export for all implemented
 endpoints.
 
 ## Docker
 Docker Compose file in the root dir sets up a basic postgres database with no
 volume for easy local development. .env.example is setup for this docker compose
 file.
+## Database Setup
+there is a database seeder file at database/seeders/DatabaseSeeder.php
+once the database is set up run:
+```php artisan migrate``` to implement the database structure
+then run:
+```php artisan db:seed --class=DatabaseSeeder```
+to have a simple recipe added to the DB with ingredients and instructions.
 

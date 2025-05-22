@@ -1,0 +1,581 @@
+{
+	"info": {
+		"_postman_id": "e7a54187-798e-45f8-bce6-80db96bd870b",
+		"name": "recipe-tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30664501"
+	},
+	"item": [
+		{
+			"name": "ingredients",
+			"item": [
+				{
+					"name": "getIngredients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ingredients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createIngredient",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Rice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ingredients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateIngredient",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"9eee6929-9000-4d8d-882b-657e2e2bf0bf\",\n    \"name\": \"Rice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ingredients/9eee6929-9000-4d8d-882b-657e2e2bf0bf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"9eee6929-9000-4d8d-882b-657e2e2bf0bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createIngredient-Fail",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Rice\",\n    \"size\": \"test\",\n    \"size_unit\": \"g\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ingredients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getIngredientById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ingredients/9eeeb3e7-7736-4957-8327-aeeefdc024f8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"9eeeb3e7-7736-4957-8327-aeeefdc024f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteIngredient",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ingredients/9eeeb3e7-7736-4957-8327-aeeefdc024f8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"9eeeb3e7-7736-4957-8327-aeeefdc024f8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "recipes",
+			"item": [
+				{
+					"name": "getRecipes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRecipes-ingredients-search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes?ingredients[]=9ef77a09-425d-422e-875f-239ce77eff18",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "ingredients[]",
+									"value": "9ef77a09-425d-422e-875f-239ce77eff18"
+								},
+								{
+									"key": "ingredients[]",
+									"value": "9eeeef69-b893-4207-93ba-7155998b2f22",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createRecipe",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"A Simple Test Recipe\",\n    \"description\": \"A simple and classic Test Recipe.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addIngredientToRecipe",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ingredientId\": \"9eeeef69-b961-4c92-9b79-fe241fcd7085\",\n    \"quantity\": 5,\n    \"unit\": \"Tbsp\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes/9eeefb88-7d64-4c5b-afe5-26b770e9ae70/ingredients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"9eeefb88-7d64-4c5b-afe5-26b770e9ae70",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addInstructionToRecipe",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"instruction\": \"This is another basic Instruction\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes/9eeefb88-7d64-4c5b-afe5-26b770e9ae70/instructions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"9eeefb88-7d64-4c5b-afe5-26b770e9ae70",
+								"instructions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeInstructionStepOnRecipe",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newStep\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes/9eeefb88-7d64-4c5b-afe5-26b770e9ae70/instructions/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"9eeefb88-7d64-4c5b-afe5-26b770e9ae70",
+								"instructions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRecipe",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"9eee6929-9000-4d8d-882b-657e2e2bf0bf\",\n    \"name\": \"Rice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/recipes/9eee6929-9000-4d8d-882b-657e2e2bf0bf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"9eee6929-9000-4d8d-882b-657e2e2bf0bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRecipeById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/recipes/9eeefb88-7d64-4c5b-afe5-26b770e9ae70",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"9eeefb88-7d64-4c5b-afe5-26b770e9ae70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRecipe",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ingredients/9eeeb3e7-7736-4957-8327-aeeefdc024f8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"9eeeb3e7-7736-4957-8327-aeeefdc024f8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}

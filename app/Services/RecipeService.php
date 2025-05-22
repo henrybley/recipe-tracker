@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Models\Instruction;
 use App\Models\Recipe;
 use App\Repositories\RecipeRepository;
-use DB;
 use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
